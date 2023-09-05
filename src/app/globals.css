@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: JosefinSans-Regular;
+    src: url('../../public/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
+}
+
+body {
+    background-color: #1c1c1c;
+    font-family: JosefinSans-Regular;
+}
+
+.welcome {
+    animation: breath 4s infinite alternate;
+    filter: drop-shadow(0px 10px rgba(52, 152, 219, 0.5));
+}
+
+@keyframes breath {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0px 0px 10px rgba(52, 152, 219, 0.5));
+    }
+
+    100% {
+        transform: scale(1.1);
+        filter: drop-shadow(2px 10px rgba(52, 152, 219, 0.8));
+    }
+}
