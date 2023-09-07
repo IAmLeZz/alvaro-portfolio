@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const backendApiCaller = async ({endpoint}: {endpoint: string}) => {
     try {
-        const url = `${BASE_URL}/${endpoint}`
+        const url = `${BASE_URL}/api/${endpoint}`
         const response = await axios.get(url);
         return response.data;
     } catch (error) {
