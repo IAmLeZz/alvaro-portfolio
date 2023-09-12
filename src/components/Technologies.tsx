@@ -3,6 +3,7 @@
 import { BASE_URL } from '@/utils/constants';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image';
 import "animate.css";
 import 'hover.css'
 
@@ -28,13 +29,15 @@ export const Technologies = () => {
                     return (
 
                         <div key={technology.id} className='flex flex-col items-center'>
-                            <img
+                            <Image
                                 src={`${BASE_URL}/${technology.image}`}
                                 alt={technology.name}
+                                width={800}
+                                height={800}
                                 className="md:w-32 md:h-32 w-[50%] h-[100%] rounded-lg object-contain            
-                                hvr hvr-bounce-in antialiased"
+                                hvr hvr-bounce-in"
                             />
-                            <p className='mt-2 text-center text-gray-300 font-bold'>{technology.name}</p>
+                            <p className='mt-5 text-center text-gray-300 font-bold'>{technology.name}</p>
                         </div>
                     )
                 })}
