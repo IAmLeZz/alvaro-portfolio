@@ -8,23 +8,23 @@ const Navbar = () => {
 
                 <ul className="flex space-x-6">
                     <li>
-                        <Link href="/" className="text-gray-400 hover:text-white">
-                            Inicio
+                        <Link href="/" className="text-gray-400 hover:text-white font-bold">
+                            INICIO
                         </Link>
                     </li>
                     <li>
-                        <Link href="/about" className="text-gray-400 hover:text-white">
-                            Sobre mi
+                        <Link href="/about" className="text-gray-400 hover:text-white font-bold">
+                            SOBRE MI
                         </Link>
                     </li>
                     <li>
-                        <Link href="/projects" className="text-gray-400 hover:text-white">
-                            Proyectos
+                        <Link href="/projects" className="text-gray-400 hover:text-white font-bold">
+                            PROYECTOS
                         </Link>
                     </li>
                     <li>
-                        <Link href="/contact" className="text-gray-400 hover:text-white">
-                            Contacto
+                        <Link href="/contact" className="text-gray-400 hover:text-white font-bold">
+                            CONTACTO
                         </Link>
                     </li>
                 </ul>
