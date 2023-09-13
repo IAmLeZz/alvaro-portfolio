@@ -5,15 +5,14 @@ const Navbar = () => {
     return (
         <nav className="bg-gray-900 text-white py-4 w-full">
             <div className="container mx-auto flex justify-between items-center">
-
                 <ul className="flex space-x-6">
                     <li>
-                        <Link href="/" className="text-gray-400 hover:text-white font-bold">
+                        <a href="/" className="text-gray-400 hover:text-white font-bold">
                             INICIO
-                        </Link>
+                        </a>
                     </li>
                     <li>
-                        <Link href="/about" className="text-gray-400 hover:text-white font-bold">
+                        <Link href="#about" className="text-gray-400 hover:text-white font-bold">
                             SOBRE MI
                         </Link>
                     </li>
