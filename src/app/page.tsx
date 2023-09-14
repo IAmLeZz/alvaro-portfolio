@@ -1,4 +1,5 @@
 import AboutMe from '@/components/AboutMe'
+import { Projects } from '@/components/Projects'
 import { Technologies } from '@/components/Technologies'
 import 'hover.css'
 
@@ -9,6 +10,8 @@ export default function Home() {
       <AboutMe></AboutMe>
       <h3 className='lg:text-[4em] text-[2em] text-center flex m-auto text-gray-200 technologies hvr hvr-grow'>Tecnologías que domino</h3>
       <Technologies></Technologies>
+      <h3 className='lg:text-[4em] text-[2em] text-center flex m-auto text-gray-200 technologies hvr hvr-grow'>Proyectos</h3>
+      <Projects></Projects>
     </main>
   )
 }
