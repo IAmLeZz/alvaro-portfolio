@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Projects.css'
 import { BASE_URL } from '@/utils/constants';
+import Image from 'next/image';
+import Link from 'next/link';
 
 
 export const Projects = () => {
@@ -48,28 +50,27 @@ export const Projects = () => {
     }
   }
   return (
-    <div className="container mx-auto px-4">
+    <section className="container mx-auto px-4 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s">
       <div className="masonry">
         {projects.map((project) => (
-          <div key={project.id} className="masonry-item h-auto bg-#4c4e54 border-#dbdbdb border-2 rounded-md">
-            {/* Render your project card or component here */}
-            {/* Example card structure */}
-            <div className="shadow rounded p-4">
-              <h2 className="text-gray-100 text-lg font-semibold">{project.name}</h2>
-              {project.category && (<p className="text-gray-200">{project.category}</p>)}
-              <p className="w-full flex flex-wrap">
-                {project.technologies.map((tech, index) => (
-                  <span key={tech.id} className={`border-2 rounded-xl ${colorOfTechnology(tech.id)} m-1 p-1 hvr hvr-grow transition-colors`}>
-                    {tech.name}
-                  </span>
-                ))}
-              </p>
-              <img className='w-full object-cover mb-4 border-gray-400 border-2 rounded-sm' src={`${BASE_URL}/${project.thumbnail}`}></img>
-              {/* Add more project details */}
+          <Link href={`/project/${project.id}`} key={project.id}>
+            <div className="masonry-item h-fit bg-#4c4e54 border-#dbdbdb border-2 rounded-md transition-shadow hvr hvr-bob hover:shadow-lg hover:shadow-gray-300">
+              <div className="shadow rounded p-4">
+                <h2 className="text-gray-100 text-lg font-semibold">{project.name}</h2>
+                {project.category && (<p className="text-gray-200">{project.category}</p>)}
+                <p className="w-full flex flex-wrap">
+                  {project.technologies.map((tech) => (
+                    <span key={tech.id} className={`border-2 rounded-xl ${colorOfTechnology(tech.id)} m-1 p-1 hvr hvr-grow transition-all`}>
+                      {tech.name}
+                    </span>
+                  ))}
+                </p>
+                <Image className='w-full my-2 object-cover border-gray-400 border-2 rounded-sm' src={`${BASE_URL}/${project.thumbnail}`} width={1920} height={1080} alt={project.name}></Image>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
