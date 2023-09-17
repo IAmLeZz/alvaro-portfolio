@@ -11,7 +11,6 @@ const AboutMe = () => {
     useEffect(() => {
         async function updatePersonalInfoData() {
             const personalInfoData = await axios.get(`${BASE_URL}/api/personalInfo/`)
-            console.log(personalInfoData);
             if (personalInfoData) {
                 setPersonalInfo(personalInfoData.data[0]);
             } else {
@@ -22,7 +21,7 @@ const AboutMe = () => {
     }, [])
 
     return (
-        <div className="bg-#161617 border-2 rounded-lg border-#5c5c5c my-5 flex" id="AboutMe">
+        <section className="bg-#161617 border-2 rounded-lg border-#5c5c5c my-5 flex" id="AboutMe">
             <div className="lg:max-w-7xl sm:w-[100%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div className="relative h-auto w-full">
@@ -61,7 +60,7 @@ const AboutMe = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 
