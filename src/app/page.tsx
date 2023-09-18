@@ -1,4 +1,5 @@
 import AboutMe from '@/components/AboutMe'
+import ContactForm from '@/components/ContactForm';
 import { Projects } from '@/components/Projects'
 import { Technologies } from '@/components/Technologies'
 import "animate.css";
@@ -13,6 +14,8 @@ export default function Home() {
       <Technologies></Technologies>
       <h3 className='lg:text-[4em] text-[2em] text-center flex m-auto text-gray-200 technologies hvr hvr-grow'>Proyectos</h3>
       <Projects></Projects>
+      <h3 className='lg:text-[4em] text-[2em] text-center flex m-auto text-gray-200 technologies hvr hvr-grow'>Contacto</h3>
+      <ContactForm></ContactForm>
     </main>
   )
 }
