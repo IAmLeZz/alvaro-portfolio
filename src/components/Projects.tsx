@@ -50,7 +50,7 @@ export const Projects = () => {
     }
   }
   return (
-    <section className="container mx-auto px-4 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s">
+    <section className="container mx-auto px-4 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s" id='projects'>
       <div className="masonry">
         {projects.map((project) => (
           <Link href={`/project/${project.id}`} key={project.id}>

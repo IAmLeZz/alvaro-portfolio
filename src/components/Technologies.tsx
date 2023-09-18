@@ -21,7 +21,7 @@ export const Technologies = () => {
     }, [])
 
     return (
-        <section>
+        <section id='technologies'>
             <div className='grid lg:grid-cols-5 gap-7 md:gap-12 grid-cols-2 md:grid-cols-3 bg-#1c1c1c border-2 rounded-lg border-#5c5c5c my-5 p-5 lg:p-12 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s'>
                 {technologies.map((technology: any) => {
                     return (
