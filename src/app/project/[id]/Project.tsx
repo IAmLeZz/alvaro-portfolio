@@ -6,7 +6,9 @@ import Image from 'next/image';
 import axios from 'axios';
 import { AiFillGithub } from 'react-icons/ai';
 import { GoLink } from 'react-icons/go';
+import { TiArrowBack } from 'react-icons/ti';
 import { BASE_URL } from '@/utils/constants';
+import Link from 'next/link';
 
 
 export const Project = ({ params }: PageProps) => {
@@ -38,12 +40,12 @@ export const Project = ({ params }: PageProps) => {
             }
         };
         updateProjectData();
-    }, []);
+    }, [params.id]);
 
     if (error) return <div><h2 className='text-red-600'>Ocurrió un error</h2></div>
     if (loading) return <div><h2 className='text-blue-200'>Cargando...</h2></div>
     return (
-        <div className="mb-5">
+        <div className="my-5">
             {/* Header with Project Thumbnail */}
             <header className="relative">
                 <Image
@@ -54,6 +56,11 @@ export const Project = ({ params }: PageProps) => {
                     height={1080}
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent opacity-50" />
+                <div className='absolute top-0 left-0 m-5 w-full h-full bg-gradient-to-b from-transparent opacity-80 z-10 hidden md:block'>
+                    <Link className="text-white text-xl font-bold border-2 flex items-center justify-center w-fit border-gray-300 bg-gray-700 p-2 rounded-md hover:text-gray-300 transition duration-300" href={'/'}>
+                        Volver<TiArrowBack></TiArrowBack>
+                    </Link>
+                </div>
                 <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white text-center">
                     <div>
                         <h1 className="text-4xl font-bold animate-fade-in">{project.name}</h1>
@@ -61,7 +68,7 @@ export const Project = ({ params }: PageProps) => {
                     </div>
                 </div>
                 <div className='absolute top-0 h-full w-full flex flex-col items-center justify-end text-white text-center'>
-                    <div className="flex mb-2 lg:mb-5">
+                    <div className="flex mb-2 lg:mb-5 z-10">
                         {project.repository && (
                             <a
                                 href={project.repository}
