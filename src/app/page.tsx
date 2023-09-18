@@ -1,5 +1,5 @@
 import AboutMe from '@/components/AboutMe'
-import ContactForm from '@/components/ContactForm';
+import { ContactForm } from '@/components/ContactForm';
 import { Projects } from '@/components/Projects'
 import { Technologies } from '@/components/Technologies'
 import "animate.css";
