@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { AiOutlineLinkedin, AiOutlineGithub } from 'react-icons/ai'
 
@@ -10,10 +11,10 @@ export const Footer = () => {
                         <p className="font-semibold text-gray-800 dark:text-white">Acceso rápido</p>
 
                         <div className="flex flex-col items-start mt-5 space-y-2">
-                            <a href="#aboutme" target='_blank' className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre mi</a>
-                            <a href="#technologies" target='_blank' className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Tecnologías</a>
-                            <a href="#projects" target='_blank' className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Proyectos y experiencia</a>
-                            <a href="#contact" target='_blank' className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Contacto</a>
+                            <Link href="#aboutme" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre mi</Link>
+                            <Link href="#technologies" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Tecnologías</Link>
+                            <Link href="#projects" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Proyectos y experiencia</Link>
+                            <Link href="#contact" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Contacto</Link>
                         </div>
                     </div>
 
@@ -34,8 +35,10 @@ export const Footer = () => {
 
                 <hr className="my-6 border-gray-200 md:my-8 dark:border-gray-700" />
 
-                <div className="flex items-center justify-between">
-                    <p className='font-semibold text-[1em] text-gray-300'>Powered by Next.js.</p>
+                <div className="relative flex items-center justify-between z-10">
+                    <p className='font-semibold text-[1em] text-gray-300'>
+                        Hosted on <a href='https://vercel.com/home' className='text-gray-100' target='_blank'>Vercel</a> and powered by <a href='https://nextjs.org/' className='text-gray-100' target='_blank'>Next.js</a>
+                    </p>
                     <p className='text-center font-bold text-[1em] text-gray-200'>Copyright © 2023 <a href='/'>Álvaro Roberto Villaló</a></p>
                 </div>
             </div>
