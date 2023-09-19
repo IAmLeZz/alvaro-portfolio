@@ -9,11 +9,12 @@ import { GoLink } from 'react-icons/go';
 import { TiArrowBack } from 'react-icons/ti';
 import { BASE_URL } from '@/utils/constants';
 import Link from 'next/link';
-
+import { Modal } from '@/components/Modal';
 
 export const Project = ({ params }: PageProps) => {
     const [error, setError] = useState<boolean>(false);
     const [loading, setLoading] = useState(true);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [project, setProject] = useState<Project>({
         id: 0,
         name: '',
@@ -57,7 +58,7 @@ export const Project = ({ params }: PageProps) => {
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent opacity-50" />
                 <div className='absolute top-0 left-0 m-5 w-full h-full bg-gradient-to-b from-transparent opacity-80 z-10 hidden md:block'>
-                    <Link className="text-white text-xl font-bold border-2 flex items-center justify-center w-fit border-gray-300 bg-gray-700 p-2 rounded-md hover:text-gray-300 transition duration-300" href={'/'}>
+                    <Link className="text-white text-xl font-bold border-2 flex items-center justify-center w-fit border-gray-300 bg-gray-700 p-2 rounded-md hover:text-gray-300 hover:translate-x-[-10px] transition duration-300" href={'/'}>
                         Volver<TiArrowBack></TiArrowBack>
                     </Link>
                 </div>
@@ -126,12 +127,26 @@ export const Project = ({ params }: PageProps) => {
             </section>
 
             {/* Media Gallery Section */}
+            {/*Modal component*/}
+            {selectedImage && (
+                <Modal
+                    imageUrl={selectedImage}
+                    onClose={() => setSelectedImage(null)}
+                />
+            )}
             <section className="container mx-auto mt-8 px-4">
                 <h2 className="text-4xl font-bold text-center mb-4 text-gray-100 decoration-6 underline decoration-#00609c">Galería</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {project.media.map((media) => (
                         <div key={media.id} className="rounded-lg overflow-hidden">
-                            <a href={`${BASE_URL}/${media.url}`} target="_blank" rel="noopener noreferrer">
+                            <a
+                                href="#"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    setSelectedImage(`${BASE_URL}/${media.url}`);
+                                }
+                                }
+                            >
                                 <Image
                                     src={`${BASE_URL}/${media.url}`}
                                     alt={media.caption || project.name}
