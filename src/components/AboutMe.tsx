@@ -1,4 +1,5 @@
 "use client"
+
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { DocumentArrowDownIcon } from '@heroicons/react/24/outline'
@@ -21,7 +22,7 @@ const AboutMe = () => {
     }, [])
 
     return (
-        <section className="bg-#161617 border-2 rounded-lg border-#5c5c5c my-5 flex" id="aboutme">
+        <section className="bg-#161617 border-2 rounded-lg border-#5c5c5c my-5 flex animate__animated animate__fadeIn animate__duration-2s" id="aboutme">
             <div className="lg:max-w-7xl sm:w-[100%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     <div className="relative h-auto w-full">

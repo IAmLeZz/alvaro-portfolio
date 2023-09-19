@@ -39,7 +39,7 @@ export const ContactForm = () => {
     };
 
     return (
-        <section className="bg-gray-900 p-8 rounded-lg shadow-lg w-full md:w-[75%] lg:w-[50%] mb-5 relative z-10">
+        <section className="bg-gray-900 p-8 rounded-lg shadow-lg w-full md:w-[75%] lg:w-[50%] mb-5 relative z-10 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s" id="contact">
             <h2 className="text-2xl font-semibold text-white mb-4">Formulario de contacto</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
