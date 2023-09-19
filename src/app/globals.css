@@ -7,6 +7,10 @@
     src: url('../../public/fonts/Josefin_Sans/static/JosefinSans-Regular.ttf');
 }
 
+html {
+    overflow-x: hidden;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 13px;
