@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 
-const Navbar = () => {
+export const Navbar = () => {
     return (
         <nav className="bg-gray-900 text-white py-4 w-full relative shadow-md shadow-blue-900">
             <div className="container mx-auto flex justify-between items-center">
@@ -32,4 +32,3 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
