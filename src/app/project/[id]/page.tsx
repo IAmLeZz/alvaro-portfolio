@@ -5,7 +5,7 @@ import { Project } from './Project';
 export default function page({ params }: PageProps) {
     return (
         <main className='z-10 antialiased'>
-            <Project params={params}></Project>
+            <Project params={params} />
         </main>
     )
 }
