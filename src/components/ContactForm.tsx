@@ -6,6 +6,9 @@ import { BsFillSendFill } from 'react-icons/bs';
 import { BASE_URL } from '@/utils/constants';
 
 export const ContactForm = () => {
+    const [formResponse, setFormResponse] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [serverErrors, setServerError] = useState<string[] | null>(null);
     const [formFields, setFormFields] = useState({
         name: '',
         email: '',
@@ -24,20 +27,31 @@ export const ContactForm = () => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const response = await fetch(`${BASE_URL}/api/messages/storeMessage`, {
-            method: 'POST',
-            body: JSON.stringify(formFields),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        }).then((response) => {
-            if (!response.ok) {
-                throw new Error('Ha ocurrido un error.');
-            }
-        });
-        console.log(response);
-    };
+        try {
+            const response = await fetch(`${BASE_URL}/api/messages/storeMessage`, {
+                method: 'POST',
+                body: JSON.stringify(formFields),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
 
+            if (!response.ok) {
+                const errorData = await response.json();
+                setServerError(errorData.errors);
+                setFormResponse(null);
+            } else {
+                const data = await response.json();
+                setFormResponse(data.message);
+                setServerError(null);
+            }
+        } catch (error) {
+            if (error instanceof Error) {
+                setError(error.message);
+                setFormResponse(null);
+            }
+        };
+    }
     return (
         <section className="bg-gray-900 p-8 rounded-lg shadow-lg w-full md:w-[75%] lg:w-[50%] mb-5 relative z-10 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s" id="contact">
             <h2 className="text-2xl font-semibold text-white mb-4">Formulario de contacto</h2>
@@ -104,7 +118,7 @@ export const ContactForm = () => {
                 </div>
                 <div className="mb-4">
                     <label className="block text-white mb-1" htmlFor="company">
-                        Compañía (opcional)
+                        Compañía / Organización (opcional)
                     </label>
                     <div className="relative">
                         <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
@@ -117,7 +131,7 @@ export const ContactForm = () => {
                             value={formFields.company}
                             onChange={handleChange}
                             className="w-full py-2 pl-10 pr-4 rounded-lg bg-gray-800 text-white border border-gray-600 focus:outline-none focus:border-blue-400"
-                            placeholder="Tu compañía"
+                            placeholder="Tu compañía / organización"
                         />
                     </div>
                 </div>
@@ -144,6 +158,19 @@ export const ContactForm = () => {
                 >
                     Enviar <BsFillSendFill style={{ marginLeft: '0.5rem' }} />
                 </button>
+                {formResponse && (
+                    <h1 className="font-semibold text-green-600 text-xl">{formResponse}</h1>
+                )}
+                {error && (
+                    <h1 className="font-semibold text-red-600 text-xl">{error}</h1>
+                )}
+                {serverErrors && (
+                    <div className="font-semibold text-red-500 text-xl my-2">
+                        {Object.values(serverErrors).map((error, index) => (
+                            <p key={index}>{error}</p>
+                        ))}
+                    </div>
+                )}
             </form>
         </section>
     );
