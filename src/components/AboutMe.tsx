@@ -41,8 +41,7 @@ const AboutMe = () => {
                         <h2 className="text-#5c5c5c text-sm md:text-base lg:text-lg">
                             Ingeniero de Software / Desarrollador Web
                         </h2>
-                        <p className="text-#5c5c5c text-sm md:text-base lg:text-lg">
-                            {personalInfo?.description}
+                        <p className="text-#5c5c5c text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: personalInfo?.description }}>
                         </p>
                         <div className='hvr hvr-grow w-max'>
                             <a
