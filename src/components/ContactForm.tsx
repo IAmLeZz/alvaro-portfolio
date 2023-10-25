@@ -1,14 +1,21 @@
 "use client"
 
-import React, { ChangeEvent, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import { FiUser, FiMail, FiBriefcase, FiPhone } from 'react-icons/fi';
 import { BsFillSendFill } from 'react-icons/bs';
 import { BASE_URL } from '@/utils/constants';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 export const ContactForm = () => {
     const [formResponse, setFormResponse] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [serverErrors, setServerError] = useState<string[] | null>(null);
+    const [captchaValue, setCaptchaValue] = useState<string | null>(null);
+    const captchaRef = useRef<HCaptcha>(null);
+
+    const onCaptchaChange = (value: string) => {
+        setCaptchaValue(value);
+    }
     const [formFields, setFormFields] = useState({
         name: '',
         email: '',
@@ -27,30 +34,48 @@ export const ContactForm = () => {
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        try {
-            const response = await fetch(`${BASE_URL}/api/messages/storeMessage`, {
-                method: 'POST',
-                body: JSON.stringify(formFields),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
+        if (captchaValue) {
+            try {
+                const response = await fetch(`${BASE_URL}/api/messages/storeMessage`, {
+                    method: 'POST',
+                    body: JSON.stringify({ ...formFields, 'h-captcha-response': captchaValue }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                setServerError(errorData.errors);
-                setFormResponse(null);
-            } else {
-                const data = await response.json();
-                setFormResponse(data.message);
-                setServerError(null);
-            }
-        } catch (error) {
-            if (error instanceof Error) {
-                setError(error.message);
-                setFormResponse(null);
-            }
-        };
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    setServerError(errorData.errors);
+                    setFormResponse(null);
+                    setCaptchaValue(null);
+                    captchaRef.current?.resetCaptcha();
+                } else {
+                    const data = await response.json();
+                    setFormResponse(data.message);
+                    setError(null);
+                    setServerError(null);
+                    setCaptchaValue(null);
+                    captchaRef.current?.resetCaptcha();
+                    setFormFields({
+                        name: '',
+                        email: '',
+                        company: '',
+                        phone_number: '',
+                        message: '',
+                    })
+                }
+            } catch (error) {
+                if (error instanceof Error) {
+                    setError(error.message);
+                    setFormResponse(null);
+                    setCaptchaValue(null);
+                    captchaRef.current?.resetCaptcha();
+                }
+            };
+        } else {
+            setError('Por favor completa el captcha / Please verify the captcha.');
+        }
     }
     return (
         <section className="bg-gray-900 p-8 rounded-lg shadow-lg w-full md:w-[75%] lg:w-[50%] mb-5 relative z-10 animate__animated animate__fadeIn animate__duration-2s animate__delay-1s" id="contact">
@@ -154,10 +179,11 @@ export const ContactForm = () => {
                 </div>
                 <button
                     type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 text-white py-2 px-4 rounded-lg flex items-center transition duration-300"
+                    className="bg-blue-500 hover:bg-blue-600 focus:bg-blue-600 text-white py-2 px-4 mb-5 rounded-lg flex items-center transition duration-300"
                 >
                     Enviar <BsFillSendFill style={{ marginLeft: '0.5rem' }} />
                 </button>
+                <HCaptcha sitekey='6379d5f2-a7a2-4f04-bc5d-fc6967a6e5e7' onVerify={onCaptchaChange} ref={captchaRef} size='normal'></HCaptcha>
                 {formResponse && (
                     <h1 className="font-semibold text-green-600 text-xl">{formResponse}</h1>
                 )}
