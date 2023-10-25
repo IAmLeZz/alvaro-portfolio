@@ -98,7 +98,7 @@ export const Project = ({ params }: PageProps) => {
             <section className="container mx-auto my-8 px-4">
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-4xl font-bold mb-4 text-gray-100 decoration-6 underline decoration-#00609c">¿De qué se trata este proyecto?</h2>
-                    <p className="text-gray-200">{project.description}</p>
+                    <p className="text-gray-200" dangerouslySetInnerHTML={{ __html: project.description }}></p>
                 </div>
             </section>
 
