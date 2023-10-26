@@ -196,7 +196,7 @@ export const ContactForm = () => {
                     <h1 className="font-semibold text-red-600 text-xl">{error}</h1>
                 )}
                 {loading && (
-                    <h1 className="font-semibold text-blue-600 text-xl">Enviando mensaje / Sending message...</h1>
+                    <h1 className="font-semibold text-blue-600 text-xl">Enviando mensaje / Sending message... <span className='loader'></span></h1>
                 )}
                 {serverErrors && (
                     <div className="font-semibold text-red-500 text-xl my-2">
