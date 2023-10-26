@@ -36,9 +36,9 @@ html {
 }
 
 .loader {
-    width: 48px;
-    height: 48px;
-    border: 5px solid #FFF;
+    width: 24px;
+    height: 24px;
+    border: 5px solid #6fb0fa;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
