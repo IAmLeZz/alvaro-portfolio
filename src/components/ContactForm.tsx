@@ -10,6 +10,7 @@ export const ContactForm = () => {
     const [formResponse, setFormResponse] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [serverErrors, setServerError] = useState<string[] | null>(null);
+    const [loading, setLoading] = useState(false);
     const [captchaValue, setCaptchaValue] = useState<string | null>(null);
     const captchaRef = useRef<HCaptcha>(null);
 
@@ -36,6 +37,7 @@ export const ContactForm = () => {
         e.preventDefault();
         if (captchaValue) {
             try {
+                setLoading(true);
                 const response = await fetch(`${BASE_URL}/api/messages/storeMessage`, {
                     method: 'POST',
                     body: JSON.stringify({ ...formFields, 'h-captcha-response': captchaValue }),
@@ -49,6 +51,7 @@ export const ContactForm = () => {
                     setServerError(errorData.errors);
                     setFormResponse(null);
                     setCaptchaValue(null);
+                    setLoading(false);
                     captchaRef.current?.resetCaptcha();
                 } else {
                     const data = await response.json();
@@ -56,6 +59,7 @@ export const ContactForm = () => {
                     setError(null);
                     setServerError(null);
                     setCaptchaValue(null);
+                    setLoading(false);
                     captchaRef.current?.resetCaptcha();
                     setFormFields({
                         name: '',
@@ -70,6 +74,7 @@ export const ContactForm = () => {
                     setError(error.message);
                     setFormResponse(null);
                     setCaptchaValue(null);
+                    setLoading(false);
                     captchaRef.current?.resetCaptcha();
                 }
             };
@@ -189,6 +194,9 @@ export const ContactForm = () => {
                 )}
                 {error && (
                     <h1 className="font-semibold text-red-600 text-xl">{error}</h1>
+                )}
+                {loading && (
+                    <h1 className="font-semibold text-blue-600 text-xl">Cargando...</h1>
                 )}
                 {serverErrors && (
                     <div className="font-semibold text-red-500 text-xl my-2">
