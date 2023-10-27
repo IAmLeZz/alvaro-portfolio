@@ -23,23 +23,15 @@ const AboutMe = () => {
 
     return (
         <section className="bg-#161617 border-2 rounded-lg border-#5c5c5c my-5 flex animate__animated animate__fadeIn animate__duration-2s" id="aboutme">
-            <div className="lg:max-w-7xl sm:w-[100%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div className="relative h-auto w-full">
-                        <Image
-                            src={`${BASE_URL}/${personalInfo?.image}`}
-                            alt="Profile picture"
-                            height={1024}
-                            width={1024}
-                            className="rounded-lg object-cover max-w-full h-auto"
-                        />
-                    </div>
+            <div className="lg:max-w-3xl sm:w-[100%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="grid grid-cols-1 gap-8 items-center">
+
                     <div className="flex flex-col justify-center space-y-4">
                         <h1 className="text-#d4d4d4 text-xl md:text-2xl lg:text-4xl font-bold">
                             Álvaro Villaló
                         </h1>
                         <h2 className="text-#5c5c5c text-sm md:text-base lg:text-lg">
-                            Ingeniero de Software / Desarrollador Web
+                            Desarrollador Web Full-Stack
                         </h2>
                         <p className="text-#5c5c5c text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: personalInfo?.description }}>
                         </p>
