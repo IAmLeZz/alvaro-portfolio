@@ -46,6 +46,14 @@ html {
     animation: rotation 1s linear infinite;
 }
 
+.navbar {
+    transition: padding 1s ease;
+}
+
+.navbar.fixed {
+    position: fixed;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);
