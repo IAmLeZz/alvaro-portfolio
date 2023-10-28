@@ -28,7 +28,6 @@ export const Footer = () => {
                             <a href="https://github.com/IAmLeZz" target='_blank' className="text-gray-600 flex items-center transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">
                                 GitHub <AiOutlineGithub style={{ marginLeft: '0.2rem' }}></AiOutlineGithub>
                             </a>
-                            <a href="#" target='_blank' className="text-gray-600 flex items-center transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Twitter</a>
                         </div>
                     </div>
                 </div>
