@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image'
 import { DocumentArrowDownIcon } from '@heroicons/react/24/outline'
 import axios from 'axios';
 import { BASE_URL } from '@/utils/constants';
@@ -23,14 +22,14 @@ const AboutMe = () => {
 
     return (
         <section className="bg-#161617 border-2 rounded-lg border-#5c5c5c my-5 flex animate__animated animate__fadeIn animate__duration-2s" id="aboutme">
-            <div className="lg:max-w-3xl sm:w-[100%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="lg:max-w-2xl sm:w-[100%] mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 gap-8 items-center">
 
                     <div className="flex flex-col justify-center space-y-4">
                         <h1 className="text-#d4d4d4 text-xl md:text-2xl lg:text-4xl font-bold">
                             Álvaro Villaló
                         </h1>
-                        <h2 className="text-#5c5c5c text-sm md:text-base lg:text-lg">
+                        <h2 className="text-[#a0a0a0] font-bold text-sm md:text-base lg:text-lg">
                             Desarrollador Web Full-Stack
                         </h2>
                         <p className="text-#5c5c5c text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: personalInfo?.description }}>
