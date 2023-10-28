@@ -18,6 +18,11 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'lezz-portfolio-back-git-postgress-version-iamlezz.vercel.app',
                 pathname: '/**'
+            },
+            {
+                protocol: 'https',
+                hostname: 'lezz-portfolio-front.vercel.app',
+                pathname: '/**'
             }
         ]
     }
