@@ -9,6 +9,12 @@ const nextConfig = {
                 pathname: '/**'
             },
             {
+                protocol: 'http',
+                hostname: 'localhost',
+                port: '3000',
+                pathname: '/**'
+            },
+            {
                 protocol: 'https',
                 hostname: 'lezz-portfolio-back-git-postgress-version-iamlezz.vercel.app',
                 pathname: '/**'
