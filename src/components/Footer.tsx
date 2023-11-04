@@ -11,10 +11,10 @@ export const Footer = () => {
                         <p className="font-semibold text-gray-800 dark:text-white">Acceso rápido</p>
 
                         <div className="flex flex-col items-start mt-5 space-y-2">
-                            <Link href="#aboutme" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre mi</Link>
-                            <Link href="#technologies" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Tecnologías</Link>
-                            <Link href="#projects" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Proyectos y experiencia</Link>
-                            <Link href="#contact" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Contacto</Link>
+                            <Link href="/#aboutme" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Sobre mi</Link>
+                            <Link href="/#technologies" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Tecnologías</Link>
+                            <Link href="/#projects" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Proyectos y experiencia</Link>
+                            <Link href="/#contact" className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500">Contacto</Link>
                         </div>
                     </div>
 
