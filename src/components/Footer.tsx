@@ -38,7 +38,7 @@ export const Footer = () => {
                     <p className='font-semibold text-[1em] text-gray-300'>
                         Hosted on <a href='https://vercel.com/home' className='text-gray-100' target='_blank'>Vercel</a> and powered by <a href='https://nextjs.org/' className='text-gray-100' target='_blank'>Next.js</a>
                     </p>
-                    <p className='text-center font-bold text-[1em] text-gray-200'>Copyright © 2023 <a href='/'>Álvaro Roberto Villaló</a></p>
+                    <p className='text-center font-bold text-[1em] text-gray-200'>Copyright © 2024 <a href='/'>Álvaro Roberto Villaló</a></p>
                 </div>
             </div>
         </footer>
