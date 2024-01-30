@@ -36,9 +36,9 @@ export const Footer = () => {
 
                 <div className="relative flex items-center justify-between z-10">
                     <p className='font-semibold text-[1em] text-gray-300'>
-                        Hosted on <a href='https://vercel.com/home' className='text-gray-100' target='_blank'>Vercel</a> and powered by <a href='https://nextjs.org/' className='text-gray-100' target='_blank'>Next.js</a>
+                        Hosted on <a href='https://vercel.com/home' className='text-gray-100 decoration-gray-400 underline decoration-[3px] decoration-dashed underline-offset-4' target='_blank'>Vercel</a> and powered by <a href='https://nextjs.org/' className='text-gray-100 decoration-gray-400 underline decoration-[3px] decoration-dashed underline-offset-4' target='_blank'>Next.js</a>
                     </p>
-                    <p className='text-center font-bold text-[1em] text-gray-200'>Copyright © 2024 <a href='/'>Álvaro Roberto Villaló</a></p>
+                    <p className='text-center font-bold text-[1em] text-gray-200'>Copyright © 2024 <a href='/' className='decoration-blue-400 underline decoration-[3px] underline-offset-4'>Álvaro Roberto Villaló</a></p>
                 </div>
             </div>
         </footer>
