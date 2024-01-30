@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import ParticlesBackground from '@/components/ParticlesBackground'
 import { Footer } from '@/components/Footer'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export default function RootLayout({
         <ParticlesBackground />
         <Navbar />
         {children}
+        <SpeedInsights />
         <Footer />
       </body>
     </html>
