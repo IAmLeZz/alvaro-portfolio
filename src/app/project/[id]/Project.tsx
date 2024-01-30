@@ -151,8 +151,8 @@ export const Project = ({ params }: PageProps) => {
                                     src={`${BASE_URL}/${media.url}`}
                                     alt={media.caption || project.name}
                                     className="w-full h-auto rounded-md transition-transform transform hover:scale-105"
-                                    height={1080}
-                                    width={1920}
+                                    height={480}
+                                    width={720}
                                 />
                             </a>
                             {media.caption && (
