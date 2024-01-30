@@ -44,7 +44,7 @@ export const Project = ({ params }: PageProps) => {
     }, [params.id]);
 
     if (error) return <div><h2 className='text-red-600'>Ocurrió un error</h2></div>
-    if (loading) return <div><h2 className='text-blue-200'>Cargando...</h2></div>
+    if (loading) return <div><h2 className='text-blue-200'>Cargando... <span className='loader text-[30px]'></span></h2></div>
     return (
         <div className="my-5">
             {/* Header with Project Thumbnail */}
