@@ -65,7 +65,7 @@ export const Projects = () => {
                     </span>
                   ))}
                 </p>
-                <Image className='w-full my-2 object-cover border-gray-400 border-2 rounded-sm' src={`${BASE_URL}/${project.thumbnail}`} width={1920} height={1080} alt={project.name}></Image>
+                <Image className='w-full my-2 object-cover border-gray-400 border-2 rounded-sm' src={`${BASE_URL}/${project.thumbnail}`} width={400} height={200} alt={project.name}></Image>
               </div>
             </div>
           </Link>

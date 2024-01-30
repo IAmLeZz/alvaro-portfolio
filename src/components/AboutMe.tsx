@@ -5,14 +5,14 @@ import { DocumentArrowDownIcon } from '@heroicons/react/24/outline'
 import axios from 'axios';
 import { BASE_URL } from '@/utils/constants';
 
-const AboutMe = () => {
-    const [personalInfo, setPersonalInfo] = useState<PersonalInfo>({ description: '', image: '', resume: '' });
+export const AboutMe = () => {
+    const [resume, setResume] = useState<PersonalInfo>({ description: '', image: '', resume: '' });
 
     useEffect(() => {
         async function updatePersonalInfoData() {
-            const personalInfoData = await axios.get(`${BASE_URL}/api/personalInfo/`)
+            const personalInfoData = await axios.get(`${BASE_URL}/api/personalInfo/resume`)
             if (personalInfoData) {
-                setPersonalInfo(personalInfoData.data[0]);
+                setResume(personalInfoData.data.resume);
             } else {
                 console.log('Error');
             }
@@ -32,11 +32,11 @@ const AboutMe = () => {
                         <h2 className="text-[#a0a0a0] font-bold text-sm md:text-base lg:text-lg">
                             Desarrollador Web Full-Stack
                         </h2>
-                        <p className="text-#5c5c5c text-sm md:text-base lg:text-lg" dangerouslySetInnerHTML={{ __html: personalInfo?.description }}>
-                        </p>
+                        <p className="text-#5c5c5c text-sm md:text-base lg:text-lg">¡Hola! Soy Álvaro Villaló, un desarrollador web que reside en Argentina. Mi experiencia abarca una amplia gama de tecnologías, incluyendo .NET, Node.js, React y Next.js. Hace cuatro años, escribí mi primer programa en C#, un momento que marcó mi decisión de dedicarme a crear soluciones que superen las expectativas de mis clientes.
+                            Mi trayectoria incluye el diseño y desarrollo de sistemas de diversa complejidad, lo que me ha brindado la versatilidad para abordar proyectos de cualquier envergadura. Estoy comprometido a aplicar mis habilidades y conocimientos en cada desafío que emprendo. ¡Espero con interés poder colaborar contigo!</p>
                         <div className='hvr hvr-grow w-max'>
                             <a
-                                href={`${BASE_URL}/${personalInfo?.resume}`}
+                                href={`${BASE_URL}/${resume}`}
                                 download={"Alvaro_Villalo_Resume"}
                                 target="_blank"
                                 className="inline-flex items-center px-4 py-2 z-10 border border-transparent text-sm md:text-base font-medium max-w-max rounded-md shadow-sm text-white bg-#00609c hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -54,5 +54,3 @@ const AboutMe = () => {
         </section>
     )
 }
-
-export default AboutMe
